@@ -1,0 +1,80 @@
+[push]
+	default = upstream
+[credential]
+	helper = osxkeychain
+[github]
+	user = LBRapid
+[user]
+	name = John Dyer
+	email = lbrapid@gmail.com
+[alias]
+  ap = add --patch
+  up = pull
+  ci = commit
+  st = status
+  di = diff
+  dc = diff --cached
+  co = checkout
+  br = branch
+  sta = stash
+  sd = svn dcommit
+  tg = tag
+  sr = svn rebase
+  pp = !git pull --rebase && git push
+  lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue<%an>%Creset' --abbrev-commit --date=relative
+  deploy = !git push && cap deploy
+  wtf = !git-wtf
+	ctags = !.git/hooks/ctags
+[color]
+	ui = always
+[color "diff"]
+    meta = blue bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "branch"]
+    current = yellow reverse
+    local = yellow bold
+    remote = green bold
+    plain = red bold
+
+[color "status"]
+    added = yellow
+    changed = green bold
+    untracked = blue bold
+[apply]
+  whitespace = nowarn
+[help]
+  autocorrect = 1
+[core]
+	editor = /usr/local/bin/nvim
+	quotepath = false
+  autocrif = input
+  safecrif = true
+  excludesfile = /Users/johnd/.gitignore_global
+	pager = less -r
+[branch]
+  autosetuprebase = always
+[merge]
+  summary = true
+	tool = Kaleidoscope
+[github]
+	user = LBRapid
+[init]
+	templatedir = ~/.git_template
+[web]
+	browser = google-chrome
+[pull]
+	rebase = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
