@@ -1,3 +1,12 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "zsh/zgen"]
+	path = zsh/zgen
+	url = https://github.com/tarjoilija/zgen.git
+[submodule "zsh/fzf"]
+	path = zsh/fzf
+	url = https://github.com/denolfe/fzf.git
+[submodule "zsh/asdf"]
+	path = zsh/asdf
+	url = https://github.com/asdf-vm/asdf.git

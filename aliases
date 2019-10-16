@@ -1,0 +1,74 @@
+### General
+alias h="history"
+alias ll="ls -laFh"
+alias l='less'
+alias k='clear'
+alias my='mysql -u root'
+alias .a="$EDITOR ~/.aliases && source ~/.aliases"
+alias .e="$EDITOR ~/.env && source ~/.env"
+alias reload="source ~/.aliases && source ~/.env"
+alias lip="lorem $* | pbcopy"
+alias vi='nvim'
+alias vim='nvim'
+alias rmf='rm -rf'
+alias lsa='ls -a'
+alias cbp='pbpaste | less'
+
+# Editor
+alias e=$EDITOR
+
+# Git
+alias ga='git add'
+alias gaa='git add --all'
+alias gau='git add --update'
+alias gb='git branch'
+alias gap='git add --patch'
+alias gc='git commit -v'
+alias gca='git commit -a'
+alias gco='git checkout'
+alias gd='git diff'
+alias gdc='git dc'
+alias gs='git status --short'
+alias gsl='git status'
+alias gpp='git pp'
+alias gup='git smart-pull'
+alias pull='git pull --rebase'
+alias glg='git lg'
+alias grh='git reset HEAD'
+alias grhh='git reset --hard'
+alias grc='git rebase --continue'
+alias grs='git rebase --skip'
+alias gra='git rebase --abort'
+alias sha='git rev-parse HEAD | sed ":a;N;$!ba;s/\n//g" | pbcopy'
+alias cherry='git cherry-pick $1'
+alias kdf='git difftool -y -t Kaleidoscope'
+alias kmg='git mergetool -y -t Kaleidoscope'
+alias diffmaster='git difftool -y -t Kaleidoscope origin/master...'
+alias gln='git log -n'
+alias gst='git stash'
+alias good='git bisect good'
+alias bad='git bisect bad'
+
+# Rails
+alias r='rails'
+alias rs='rails server'
+alias rc='rails console'
+alias rg='rails generate'
+alias rr='touch tmp/restart.txt'
+alias rn='rails new'
+alias tl='less +F'
+alias migrate='rake db:migrate && rake db:test:prepare'
+alias bx='bundle exec'
+alias be='bundle exec'
+alias bi='bundle install'
+alias bu='bundle update'
+alias sp='rspec spec'
+
+alias serveit='ruby -run -e httpd -- -p 5000 .'
+
+# Tmux
+alias ta='tmux attach -t'
+alias ts='tmux new-session -s'
+alias tls='tmux list-sessions'
+alias tks='tmux kill-session'
+alias mux='tmuxinator'

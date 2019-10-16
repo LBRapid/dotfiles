@@ -1,0 +1,18 @@
+export EDITOR='nvim'
+export PAGE='less'
+export CLICOLOR=1
+export LESS='-eirMFX'
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/npm/bin
+
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_GC_HEAP_FREE_SLOTS=500000
+export RUBY_GC_HEAP_INIT_SLOTS=40000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+
+export STRAP_BIN_DIR=~/workspace/strap/bin
+
+export HISTSIZE=1000
+export HISTFILE=$HOME/.history
+export SAVEHIST=$HISTSIZE
+
+export NVIM_TUI_ENABLE_TRUE_COLOR=1

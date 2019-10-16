@@ -1,0 +1,68 @@
+# Set the iTerm tab title to pwd
+precmd() {
+  echo -ne "\e]1;${PWD##*/}\a"
+}
+
+# Git
+function branch_name() {
+  branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
+  branch_name=${branch_name##refs/heads/}
+  echo $branch_name
+}
+
+function push() {
+  git push origin `branch_name`
+}
+
+function ruby_version()
+{
+    if which rvm-prompt &> /dev/null; then
+      rvm-prompt i v g
+    else
+      if which rbenv &> /dev/null; then
+        rbenv version | sed -e "s/ (set.*$//"
+      fi
+    fi
+}
+
+# FZF
+# fh - search history
+fh() {
+  eval $(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+# fcoc - checkout git commit
+
+fcoc() {
+  local commits commit
+  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
+  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
+  git checkout $(echo "$commit" | sed "s/ .*//")
+}
+
+# fshow - git commit browser
+fshow() {
+  local out sha q
+  while out=$(
+      git log --decorate=short --graph --oneline --color=always |
+      fzf --ansi --multi --no-sort --reverse --query="$q" --print-query); do
+    q=$(head -1 <<< "$out")
+    while read sha; do
+      [ -n "$sha" ] && git show --color=always $sha | less -R
+    done < <(sed '1d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
+  done
+}
+
+# open argument in dash
+function dash() {
+  open "dash://$*"
+}
+
+# open man page in dash
+function dman() {
+  open "dash://manpages:$*"
+}
+
+function ci_log_cleanup() {
+  find ~/workspace/customink -name '*.log' -print0 | xargs -0 -t rm
+}

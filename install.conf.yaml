@@ -1,11 +1,30 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
 - clean: ['~']
 
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+
 - link:
+    ~/.aliases: aliases
+    ~/.config/nvim:
+      path: config/nvim
+      create: true
+    ~/.config/coc:
+      path: config/coc
+      create: true
+    ~/.env: env
+    ~/.functions: functions
+    ~/.gemrc: gemrc
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
         path: ssh/config
         create: true
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
-
-
+    ~/.asdf: zsh/asdf
+    ~/.zgen: zsh/zgen
+    ~/.fzf: zsh/fzf
