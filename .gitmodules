@@ -4,6 +4,7 @@
 [submodule "zsh/zgen"]
 	path = zsh/zgen
 	url = https://github.com/tarjoilija/zgen.git
+  ignore = dirty
 [submodule "zsh/fzf"]
 	path = zsh/fzf
 	url = https://github.com/denolfe/fzf.git
