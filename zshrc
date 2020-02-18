@@ -139,6 +139,10 @@ eval "$(rbenv init - zsh)"
 # Start nodenv
 eval "$(nodenv init -)"
 
+# Start pyenv
+eval "$(pyenv init -)"
+
 # Start asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
