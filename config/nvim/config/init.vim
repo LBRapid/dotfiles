@@ -17,10 +17,10 @@ if dein#load_state('/Users/johnd/.cache/dein')
   " call dein#add('ervandew/supertab')
   call dein#add('honza/vim-snippets')
   call dein#add('srstevenson/vim-picker')
-  call dein#add('/usr/local/opt/fzf')
   call dein#add('junegunn/fzf.vim')
 
   " Languages
+  " call dein#add('maxmellon/vim-jsx-pretty')
   call dein#add('sheerun/vim-polyglot')
   call dein#add('tpope/vim-rails')
   call dein#add('hail2u/vim-css3-syntax')

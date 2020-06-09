@@ -20,6 +20,11 @@ nmap <unique> <leader>ph <Plug>(PickerHelp)
 "
 "
 let g:user_emmet_leader_key='<C-y>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 " Omnifuncs
 "
@@ -40,7 +45,6 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "<C-g>u<CR>"
 
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
-
 
 " vim-closetag
 "
