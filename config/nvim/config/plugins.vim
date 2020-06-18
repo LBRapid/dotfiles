@@ -29,6 +29,7 @@ let g:user_emmet_settings = {
 " Omnifuncs
 "
 "
+" set omnifunc=syntaxcomplete#Complete
 autocmd FileType css,sass,scss setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript,jsx setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -39,31 +40,44 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " coc.nvim
 "
 "
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "<C-g>u<CR>"
+let g:coc_global_extensions = [
+\ 'coc-css',
+\ 'coc-json',
+\ 'coc-pairs',
+\ 'coc-emoji',
+\ 'coc-solargraph',
+\ 'coc-tsserver',
+\ 'coc-prettier',
+\ 'coc-eslint'
+\ ]
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " vim-closetag
 "
 "
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.html.erb,*.js'
 
-" vim-endwise
-"
-"
-let g:endwise_no_mappings=1
-
 " ale
 "
 "
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier_eslint', 'prettier']
-\}
-let g:ale_fix_on_save = 1
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['prettier_eslint', 'prettier']
+" \}
+" let g:ale_fix_on_save = 1
 
 " vim-vinegar
 "

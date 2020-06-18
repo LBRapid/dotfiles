@@ -2,6 +2,7 @@
   "coc.preferences.diagnostic.enable": false,
   "coc.preferences.diagnostic.enableSign": false,
   "coc.preferences.snippets.enable": false,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "js", "scss"],
 
   "suggest.minTriggerInputLength": 3,
   "snippets.autoTrigger": true,

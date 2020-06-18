@@ -120,3 +120,5 @@ autocmd FileType c,cpp,java,php,ruby,javascript,elixir,jsx,html,css,erlang,eruby
 
 " Enable matchit.vim (comes with vim these days)
 runtime macros/matchit.vim
+
+set rtp+=/usr/local/opt/fzf
