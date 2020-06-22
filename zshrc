@@ -4,6 +4,8 @@ setopt correct
 # Turn off correct for filenames
 unsetopt correctall
 
+ZSH_DISABLE_COMPFIX="true"
+
 # Clone zgen if you haven't already
 if [[ -z "$ZGEN_PARENT_DIR" ]]; then
   ZGEN_PARENT_DIR=$HOME
@@ -134,15 +136,14 @@ if [ -d $STRAP_BIN_DIR ]; then
 fi
 
 # Start rbenv
-eval "$(rbenv init - zsh)"
+#eval "$(rbenv init - zsh)"
 
 # Start nodenv
-eval "$(nodenv init -)"
+#eval "$(nodenv init -)"
 
 # Start pyenv
-eval "$(pyenv init -)"
+#eval "$(pyenv init -)"
 
 # Start asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"

@@ -3,10 +3,10 @@
       relink: true
       create: true
 
-- clean: ['~']
+- clean: ["~"]
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [git submodule update --init --recursive, Installing submodules]
 
 - link:
     ~/.aliases: aliases
@@ -21,8 +21,8 @@
     ~/.gemrc: gemrc
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
-        path: ssh/config
-        create: true
+      path: ssh/config
+      create: true
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.asdf: zsh/asdf

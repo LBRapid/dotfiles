@@ -1,67 +1,54 @@
-"dein Scripts-----------------------------
+" vim-plug setup and configuration
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath+=/Users/johnd/.cache/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('/Users/johnd/.cache/dein')
-  call dein#begin('/Users/johnd/.cache/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/johnd/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('wsdjeg/dein-ui.vim')
-  " call dein#add('ervandew/supertab')
-  call dein#add('srstevenson/vim-picker')
-  call dein#add('junegunn/fzf.vim')
-
-  " Languages
-  " call dein#add('maxmellon/vim-jsx-pretty')
-  call dein#add('sheerun/vim-polyglot')
-  call dein#add('tpope/vim-rails')
-  call dein#add('hail2u/vim-css3-syntax')
-  call dein#add('ap/vim-css-color')
-  call dein#add('othree/csscomplete.vim')
-
-  " call dein#add('tpope/vim-endwise')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rhubarb')
-  call dein#add('tpope/vim-commentary')
-  call dein#add('tpope/vim-surround')
-  call dein#add('tpope/vim-vinegar')
-  call dein#add('rizzatti/funcoo.vim')
-  call dein#add('rizzatti/dash.vim')
-  call dein#add('scrooloose/syntastic')
-  call dein#add('justinmk/vim-sneak')
-  call dein#add('mattn/emmet-vim')
-  call dein#add('wellle/targets.vim')
-  call dein#add('mtth/scratch.vim')
-  call dein#add('wellle/targets.vim')
-  call dein#add('junegunn/vim-easy-align')
-  call dein#add('christoomey/vim-tmux-navigator')
-  call dein#add('alvan/vim-closetag')
-  call dein#add('neoclide/coc.nvim', {'merge':0, 'build': './install.sh nightly'})
-
-  " Appearance
-  call dein#add('joshdick/onedark.vim')
-  call dein#add('patstockwell/vim-monokai-tasty')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Required:
-filetype plugin indent on
-syntax enable
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin()
 
-if dein#check_install()
-  call dein#install()
-endif
+" Plug('ervandew/supertab')
+Plug('srstevenson/vim-picker')
+Plug('junegunn/fzf.vim')
 
-"End dein Scripts-------------------------
+" Languages
+" Plug('maxmellon/vim-jsx-pretty')
+Plug('sheerun/vim-polyglot')
+Plug('tpope/vim-rails')
+Plug('hail2u/vim-css3-syntax')
+Plug('ap/vim-css-color')
+Plug('othree/csscomplete.vim')
+
+Plug('tpope/vim-fugitive')
+Plug('tpope/vim-rhubarb')
+Plug('tpope/vim-commentary')
+Plug('tpope/vim-surround')
+Plug('tpope/vim-vinegar')
+Plug('rizzatti/funcoo.vim')
+Plug('rizzatti/dash.vim')
+Plug('scrooloose/syntastic')
+Plug('justinmk/vim-sneak')
+Plug('mattn/emmet-vim')
+Plug('wellle/targets.vim')
+Plug('mtth/scratch.vim')
+Plug('wellle/targets.vim')
+Plug('junegunn/vim-easy-align')
+Plug('christoomey/vim-tmux-navigator')
+Plug('alvan/vim-closetag')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Appearance
+Plug('joshdick/onedark.vim')
+Plug('patstockwell/vim-monokai-tasty')
+Plug('vim-airline/vim-airline')
+Plug('vim-airline/vim-airline-themes')
+
+" Initialize plugin system
+call plug#end()
