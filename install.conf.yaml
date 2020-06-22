@@ -29,9 +29,6 @@
     ~/.functions: functions
     ~/.gemrc: gemrc
     ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-      path: ssh/config
-      create: true
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.zgen: zsh/zgen
