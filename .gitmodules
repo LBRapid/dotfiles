@@ -8,6 +8,3 @@
 [submodule "zsh/fzf"]
 	path = zsh/fzf
 	url = https://github.com/denolfe/fzf.git
-[submodule "zsh/asdf"]
-	path = zsh/asdf
-	url = https://github.com/asdf-vm/asdf.git
