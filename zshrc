@@ -29,9 +29,17 @@ if ! zgen saved; then
   # Specify plugins
   zgen oh-my-zsh
   zgen oh-my-zsh plugins/bundler
+  zgen oh-my-zsh plugins/colored-man-pages
+  zgen oh-my-zsh plugins/sudo
+  zgen load unixorn/autoupdate-zgen
+  zgen load unixorn/git-extra-commands
+  zgen load unixorn/rake-completion.zshplugin
   zgen load Tarrasch/zsh-bd
   zgen load ltj/gitgo
   zgen load iam4x/zsh-iterm-touchbar
+  zgen load chrissicool/zsh-256color
+  zgen load supercrabtree/k
+  zgen load djui/alias-tips
 
   if [ $(uname -a | grep -ci Darwin) = 1 ]; then
     # Load macOS-specific plugins
