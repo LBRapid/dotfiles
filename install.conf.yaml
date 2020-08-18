@@ -29,6 +29,7 @@
     ~/.functions: functions
     ~/.gemrc: gemrc
     ~/.gitconfig: gitconfig
+    ~/.gitignore_global: gitignore_global
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.zgen: zsh/zgen
