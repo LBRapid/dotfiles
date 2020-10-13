@@ -43,6 +43,7 @@ Plug('junegunn/vim-easy-align')
 Plug('christoomey/vim-tmux-navigator')
 Plug('alvan/vim-closetag')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug('thinca/vim-quickrun')
 
 " Appearance
 Plug('joshdick/onedark.vim')

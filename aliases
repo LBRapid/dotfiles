@@ -2,7 +2,6 @@
 alias h="history"
 alias ll="ls -laFh"
 alias l='less'
-alias k='clear'
 alias my='mysql -u root'
 alias .a="$EDITOR ~/.aliases && source ~/.aliases"
 alias .e="$EDITOR ~/.env && source ~/.env"
@@ -32,6 +31,7 @@ alias gs='git status --short'
 alias gsl='git status'
 alias gpp='git pp'
 alias gup='git smart-pull'
+#alias gup='git fetch origin && git pull'
 alias pull='git pull --rebase'
 alias glg='git lg'
 alias grh='git reset HEAD'
