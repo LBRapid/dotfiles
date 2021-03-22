@@ -72,3 +72,6 @@ alias ts='tmux new-session -s'
 alias tls='tmux list-sessions'
 alias tks='tmux kill-session'
 alias mux='tmuxinator'
+
+# Other
+alias kb='kubectl'

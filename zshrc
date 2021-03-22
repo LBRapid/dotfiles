@@ -135,13 +135,8 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 # Some more options
 setopt pushd_ignore_dups
 
-# Enable autojump
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-# Strap utilities
-if [ -d $STRAP_BIN_DIR ]; then
-  PATH="$STRAP_BIN_DIR:${PATH}"
-fi
+# Zoxide
+eval "$(zoxide init zsh)"
 
 # Start rbenv
 #eval "$(rbenv init - zsh)"
@@ -152,7 +147,19 @@ fi
 # Start pyenv
 #eval "$(pyenv init -)"
 
+# Start nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
+# Add node@10 to path
+export PATH="/usr/local/opt/node@10/bin:$PATH"
+
 # Start asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+# Load RVM into a shell session
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

@@ -118,6 +118,9 @@ vnoremap / /\v
 " Strip trailing whitespace on save
 autocmd FileType c,cpp,java,php,ruby,javascript,elixir,jsx,html,css,erlang,eruby autocmd BufWritePre <buffer> %s/\s\+$//e
 
+" Language specific
+autocmd FileType go setlocal tabstop=4 shiftwidth=4 softtabstop=4
+
 " Enable matchit.vim (comes with vim these days)
 runtime macros/matchit.vim
 

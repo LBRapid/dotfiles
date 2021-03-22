@@ -2,7 +2,9 @@ export EDITOR='nvim'
 export PAGE='less'
 export CLICOLOR=1
 export LESS='-eirMFX'
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/npm/bin:/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/share/npm/bin:/usr/local/opt/mysql@5.6/bin:$HOME/go/bin:$PATH"
+
+export GOPATH="$HOME/go"
 
 export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_GC_HEAP_FREE_SLOTS=500000
