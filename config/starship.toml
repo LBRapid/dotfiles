@@ -1,0 +1,13 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "💀"
+
+[nodejs]
+format = "via [🤖 $version](bold green) "
+
+[aws]
+disabled = true

@@ -60,8 +60,7 @@ if ! zgen saved; then
   zstyle ':completion:*' menu select
 
   # Theme
-  #zgen load chrissicool/zsh-256color
-  zgen load https://github.com/denysdovhan/spaceship-prompt spaceship
+  # zgen load https://github.com/denysdovhan/spaceship-prompt spaceship
 
   # Save to init script
   zgen save
@@ -71,26 +70,26 @@ fi
 TOUCHBAR_GIT_ENABLED=true
 
 # Spaceship prompt options
-SPACESHIP_PROMPT_ORDER=(
-  time
-  user
-  dir
-  host
-  git
-  package
-  line_sep
-  battery
-  vi_mode
-  jobs
-  exit_code
-  char
-)
+# SPACESHIP_PROMPT_ORDER=(
+#   time
+#   user
+#   dir
+#   host
+#   git
+#   package
+#   line_sep
+#   battery
+#   vi_mode
+#   jobs
+#   exit_code
+#   char
+# )
 
-SPACESHIP_RPROMPT_ORDER=(
-  node
-  ruby
-  elixir
-)
+# SPACESHIP_RPROMPT_ORDER=(
+#   node
+#   ruby
+#   elixir
+# )
 
 if [ -f ~/.env ]; then
   . ~/.env
@@ -158,6 +157,9 @@ export PATH="/usr/local/opt/node@10/bin:$PATH"
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Enable starship
+eval "$(starship init zsh)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

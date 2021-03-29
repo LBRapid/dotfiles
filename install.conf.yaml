@@ -25,6 +25,8 @@
     ~/.config/coc:
       path: config/coc
       create: true
+    ~/.config/starship.toml:
+      path: config/starship.toml
     ~/.env: env
     ~/.functions: functions
     ~/.gemrc: gemrc
