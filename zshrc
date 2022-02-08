@@ -161,6 +161,9 @@ export PATH="/usr/local/opt/node@10/bin:$PATH"
 # Enable starship
 eval "$(starship init zsh)"
 
+# Enable McFly (history search replacement)
+eval "$(mcfly init zsh)"
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session
