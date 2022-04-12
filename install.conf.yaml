@@ -36,3 +36,4 @@
     ~/.zshrc: zshrc
     ~/.zgen: zsh/zgen
     ~/.fzf: zsh/fzf
+    ~/.ideavimrc: ideavimrc

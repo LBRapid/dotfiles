@@ -1,0 +1,26 @@
+" Change leader to a space because the backslash is too far away
+" That means all \x commands turn into <space>x
+let mapleader = " "
+
+set clipboard+=unnamed
+set multiple-cursors
+set surround
+set commentary
+set easymotion
+
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+nmap <C-x> <Plug>SkipOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+nmap <C-p> <Plug>RemoveOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+nmap <A-n> <Plug>AllWholeOccurrences
+xmap <A-n> <Plug>AllWholeOccurrences
+nmap g<A-n> <Plug>AllOccurrences
+xmap g<A-n> <Plug>AllOccurrences
+
+map <leader>u <Action>(ShowUsages)
