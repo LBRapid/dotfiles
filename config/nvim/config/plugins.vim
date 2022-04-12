@@ -49,7 +49,8 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-prettier',
 \ 'coc-eslint',
-\ 'coc-go'
+\ 'coc-go',
+\ 'coc-solargraph'
 \ ]
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :

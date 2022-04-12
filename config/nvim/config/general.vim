@@ -76,6 +76,8 @@ filetype indent on
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
+set listchars=tab:>-,trail:·
+nmap <silent> <leader>s :set nolist!<CR>
 
 " ================ Folds ============================
 set foldmethod=indent   "fold based on indent
@@ -95,8 +97,6 @@ set sidescrolloff=15
 set sidescroll=1
 
 " Show trailing spaces
-set listchars=tab:>-,trail:·
-nmap <silent> <leader>s :set nolist!<CR>
 
 " ================ Searching ========================
 set ignorecase                    " Case-insensitive searching.

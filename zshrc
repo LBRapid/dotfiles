@@ -168,3 +168,5 @@ eval "$(mcfly init zsh)"
 export PATH="$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

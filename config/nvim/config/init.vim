@@ -45,6 +45,9 @@ Plug('christoomey/vim-tmux-navigator')
 Plug('alvan/vim-closetag')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug('thinca/vim-quickrun')
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug('easymotion/vim-easymotion')
+
 
 " Appearance
 Plug('joshdick/onedark.vim')
