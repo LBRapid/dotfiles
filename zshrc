@@ -31,7 +31,6 @@ if ! zgen saved; then
   zgen oh-my-zsh plugins/bundler
   zgen oh-my-zsh plugins/colored-man-pages
   zgen oh-my-zsh plugins/sudo
-  zgen load unixorn/autoupdate-zgen
   zgen load unixorn/git-extra-commands
   zgen load unixorn/rake-completion.zshplugin
   zgen load Tarrasch/zsh-bd
@@ -51,7 +50,6 @@ if ! zgen saved; then
   zgen load zsh-users/zsh-autosuggestions
   zgen load zsh-users/zsh-completions src
   zgen load zsh-users/zsh-syntax-highlighting
-  zgen load zsh-users/zsh-history-substring-search
 
   # Up/Down Arrow for History Substring Search
   bindkey "$terminfo[kcuu1]" history-substring-search-up
@@ -68,28 +66,6 @@ fi
 
 # Enable touchbar-git for iterm
 TOUCHBAR_GIT_ENABLED=true
-
-# Spaceship prompt options
-# SPACESHIP_PROMPT_ORDER=(
-#   time
-#   user
-#   dir
-#   host
-#   git
-#   package
-#   line_sep
-#   battery
-#   vi_mode
-#   jobs
-#   exit_code
-#   char
-# )
-
-# SPACESHIP_RPROMPT_ORDER=(
-#   node
-#   ruby
-#   elixir
-# )
 
 if [ -f ~/.env ]; then
   . ~/.env
@@ -137,18 +113,8 @@ setopt pushd_ignore_dups
 # Zoxide
 eval "$(zoxide init zsh)"
 
-# Start rbenv
-#eval "$(rbenv init - zsh)"
-
-# Start nodenv
-#eval "$(nodenv init -)"
-
-# Start pyenv
-#eval "$(pyenv init -)"
-
-# Start nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+# FNM is faster
+eval "$(fnm env --use-on-cd)"
 
 # Add node@10 to path
 export PATH="/usr/local/opt/node@10/bin:$PATH"
@@ -169,4 +135,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# Created by `pipx` on 2022-04-26 01:52:53
+export PATH="$PATH:/Users/johndyer/.local/bin"

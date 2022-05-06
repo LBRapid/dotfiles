@@ -9,6 +9,8 @@
 
   "eslint.autoFixOnSave": true,
   "eslint.run": "onSave",
+  "eslint.useESLintClass": true,
+  "eslint.packageManager": "yarn",
   "javascript.suggest.completeFunctionCalls": true,
   "javascript.validate.enable": false,
   "languageserver": {

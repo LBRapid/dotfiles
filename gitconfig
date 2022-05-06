@@ -52,7 +52,7 @@
 	quotepath = false
   autocrif = input
   safecrif = true
-  excludesfile = /Users/johnd/.gitignore_global
+  excludesfile = ~/.gitignore_global
 	pager = less -r
 [branch]
   autosetuprebase = always
@@ -63,6 +63,7 @@
 	user = LBRapid
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [web]
 	browser = google-chrome
 [pull]

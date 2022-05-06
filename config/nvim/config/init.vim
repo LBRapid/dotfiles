@@ -27,6 +27,7 @@ Plug('ap/vim-css-color')
 Plug('othree/csscomplete.vim')
 Plug('fatih/vim-go')
 
+" Plug('tpope/vim-endwise')
 Plug('tpope/vim-fugitive')
 Plug('tpope/vim-rhubarb')
 Plug('tpope/vim-commentary')
