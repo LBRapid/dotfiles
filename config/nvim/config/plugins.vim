@@ -1,7 +1,7 @@
 " Airline
 "
 "
-let g:airline_theme='monokai_tasty'
+let g:airline_theme='base16_material_darker'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -49,7 +49,6 @@ let g:coc_global_extensions = [
 \ 'coc-tsserver',
 \ 'coc-prettier',
 \ 'coc-eslint',
-\ 'coc-go',
 \ 'coc-solargraph'
 \ ]
 inoremap <silent><expr> <TAB>
@@ -119,4 +118,17 @@ let g:netrw_banner = 1
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_def_mapping_enabled = 0
+let g:go_test_show_name = 1
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_operators = 1

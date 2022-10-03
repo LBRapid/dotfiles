@@ -55,6 +55,7 @@ Plug('joshdick/onedark.vim')
 Plug('patstockwell/vim-monokai-tasty')
 Plug('vim-airline/vim-airline')
 Plug('vim-airline/vim-airline-themes')
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " Initialize plugin system
 call plug#end()

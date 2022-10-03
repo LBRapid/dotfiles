@@ -35,5 +35,6 @@
     ~/.tmux.conf: tmux.conf
     ~/.zshrc: zshrc
     ~/.zgen: zsh/zgen
+    ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.fzf: zsh/fzf
     ~/.ideavimrc: ideavimrc

@@ -76,7 +76,7 @@ filetype indent on
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
-set listchars=tab:>-,trail:·
+" set listchars=tab:>-,trail:·
 nmap <silent> <leader>s :set nolist!<CR>
 
 " ================ Folds ============================

@@ -26,13 +26,7 @@ function ruby_version()
 }
 
 # FZF
-# fh - search history
-fh() {
-  eval $(([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
-}
-
 # fcoc - checkout git commit
-
 fcoc() {
   local commits commit
   commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
@@ -51,6 +45,11 @@ fshow() {
       [ -n "$sha" ] && git show --color=always $sha | less -R
     done < <(sed '1d;s/^[^a-z0-9]*//;/^$/d' <<< "$out" | awk '{print $1}')
   done
+}
+
+# glf - Git log find by commit message
+function glf() {
+  git log --all --oneline --color=always --grep="$1"
 }
 
 # open argument in dash

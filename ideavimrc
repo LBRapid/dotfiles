@@ -24,3 +24,7 @@ nmap g<A-n> <Plug>AllOccurrences
 xmap g<A-n> <Plug>AllOccurrences
 
 map <leader>u <Action>(ShowUsages)
+
+" Splits
+nmap vsp <Action>(VerticalSplit)
+nmap sp <Action)(HorizontalSplit)

@@ -1,0 +1,17 @@
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages
+ohmyzsh/ohmyzsh path:plugins/bundler
+ohmyzsh/ohmyzsh path:plugins/sudo
+
+unixorn/git-extra-commands
+unixorn/rake-completion.zshplugin
+Tarrasch/zsh-bd
+ltj/gitgo
+iam4x/zsh-iterm-touchbar
+chrissicool/zsh-256color
+supercrabtree/k
+djui/alias-tips

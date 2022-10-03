@@ -1,5 +1,6 @@
 set background=dark
-colorscheme vim-monokai-tasty
+let g:material_theme_style = 'darker'
+colorscheme material
 
 if has("gui_running")
   "tell the term has 256 colors
@@ -15,4 +16,8 @@ if has("gui_running")
   set guioptions=aAce
   set guitablabel=%N\ %t\ %m
   set noballooneval
+endif
+
+if (has('termguicolors'))
+  set termguicolors
 endif

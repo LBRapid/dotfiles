@@ -13,11 +13,4 @@
   "eslint.packageManager": "yarn",
   "javascript.suggest.completeFunctionCalls": true,
   "javascript.validate.enable": false,
-  "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
-    }
-  }
 }
