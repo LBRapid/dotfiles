@@ -179,6 +179,23 @@ function M.setup()
 			 end,
 		}
 
+    -- Completion
+    use {
+      "ms-jpq/coq_nvim",
+      branch = "coq",
+      event = "InsertEnter",
+      opt = true,
+      run = ":COQdeps",
+      config = function()
+        require("config.coq").setup()
+      end,
+      requires = {
+        { "ms-jpq/coq.artifacts", branch = "artifacts" },
+        { "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
+      },
+      disable = false,
+    }
+
 		-- Telescope
 		if PLUGINS.telescope.enabled then
 			use {
@@ -235,12 +252,13 @@ function M.setup()
 		use {
 			"neovim/nvim-lspconfig",
 			opt = true,
-			wants = { "nvim-lsp-installer" },
+			wants = { "nvim-lsp-installer", "coq_nvim" },
 			config = function()
 				require("config.lsp").setup()
 			end,
 			requires = {
 				"williamboman/nvim-lsp-installer",
+        "ray-x/lsp_signature.nvim",
 			},
 		}
 
