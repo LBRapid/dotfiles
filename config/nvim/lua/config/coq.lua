@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   local coq = require "coq"
-  coq.Now() -- Start coq
+  coq.Now("-s") -- Start coq
 
   -- 3party sources
   require "coq_3p" {

@@ -40,6 +40,7 @@ function M.setup()
   -- Plugins
   local function plugins(use)
     use { "wbthomason/packer.nvim" }
+    use { "lewis6991/impatient.nvim" }
 
     -- Load only when required
     use { "nvim-lua/plenary.nvim", module = "plenary" }
@@ -144,6 +145,7 @@ function M.setup()
 		use {
 			"nvim-lualine/lualine.nvim",
 			event = "VimEnter",
+      after = "nvim-treesitter",
 			config = function()
 				require("config.lualine").setup()
 			end,
@@ -183,8 +185,7 @@ function M.setup()
     use {
       "ms-jpq/coq_nvim",
       branch = "coq",
-      event = "InsertEnter",
-      opt = true,
+      event = "VimEnter",
       run = ":COQdeps",
       config = function()
         require("config.coq").setup()
@@ -236,6 +237,7 @@ function M.setup()
     -- Treesitter
     use {
       "nvim-treesitter/nvim-treesitter",
+       event = "BufRead",
        run = ":TSUpdate",
        config = function()
          require("config.treesitter").setup()
@@ -246,18 +248,21 @@ function M.setup()
     use {
       "RRethy/nvim-treesitter-endwise",
       wants = "nvim-treesitter",
+      event = "BufRead",
+      disable = false,
     }
 
 		-- LSP
 		use {
 			"neovim/nvim-lspconfig",
-			opt = true,
-			wants = { "nvim-lsp-installer", "coq_nvim" },
+			wants = { "nvim-lsp-installer", "lsp_signature.nvim", "coq_nvim" },
+      event = "VimEnter",
 			config = function()
 				require("config.lsp").setup()
 			end,
 			requires = {
 				"williamboman/nvim-lsp-installer",
+        "ms-jpq/coq_nvim",
         "ray-x/lsp_signature.nvim",
 			},
 		}
