@@ -7,15 +7,6 @@
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
-    - [~/.fzf/install, Installing fzf]
-    - [
-        "git clone https://github.com/asdf-vm/asdf.git ~/.asdf",
-        Cloning asdf version manager,
-      ]
-    - [
-        cd ~/.asdf && git checkout "$(git describe --abbrev=0 --tags)",
-        Checking out latest version of asdf,
-      ]
 
 - link:
     ~/.aliases: aliases
@@ -36,5 +27,4 @@
     ~/.zshrc: zshrc
     ~/.zgen: zsh/zgen
     ~/.zsh_plugins.txt: zsh_plugins.txt
-    ~/.fzf: zsh/fzf
     ~/.ideavimrc: ideavimrc
