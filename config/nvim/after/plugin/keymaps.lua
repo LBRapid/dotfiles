@@ -36,3 +36,12 @@ keymap("n", "<Down>", ":resize +1<CR>", default_opts)
 
 -- Ctrlp functionality
 keymap("n", "<C-p>", "<cmd>lua require('utils.finder').find_files()<CR>", default_opts)
+
+-- Make the dot key functional in visual  mode
+keymap("v", ".", ":norm.<CR>", default_opts)
+
+-- Easier split navigation
+keymap("n", "<C-h>", "<C-w>h", default_opts)
+keymap("n", "<C-j>", "<C-w>j", default_opts)
+keymap("n", "<C-k>", "<C-w>k", default_opts)
+keymap("n", "<C-l>", "<C-w>l", default_opts)
