@@ -216,6 +216,21 @@ function M.setup()
 			}
 		end
 
+    -- Treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+       run = ":TSUpdate",
+       config = function()
+         require("config.treesitter").setup()
+       end,
+    }
+
+    -- End wise
+    use {
+      "RRethy/nvim-treesitter-endwise",
+      wants = "nvim-treesitter",
+    }
+
 		-- LSP
 		use {
 			"neovim/nvim-lspconfig",

@@ -12,6 +12,9 @@ function M.setup()
       -- `false` will disable the whole extension
       enable = true,
     },
+    endwise = {
+      enable = true,
+    },
   }
 end
 
