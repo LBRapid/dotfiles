@@ -1,3 +1,4 @@
 config/coc
 config/nvim/.netrwhist
 config/nvim/plugged
+config/nvim/plugin/packer_compiled.lua
