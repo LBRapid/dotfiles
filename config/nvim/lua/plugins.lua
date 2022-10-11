@@ -61,6 +61,9 @@ function M.setup()
       end,
     }
 
+    -- Better Netrw
+    use { "tpope/vim-vinegar" }
+
     -- Git
     use {
       "TimUntersberger/neogit",
@@ -215,12 +218,14 @@ function M.setup()
 					"telescope-project.nvim",
 					"telescope-repo.nvim",
 					"telescope-file-browser.nvim",
+          "telescope-fzy-native.nvim",
 					"project.nvim",
 				},
 				requires = {
 					"nvim-lua/popup.nvim",
 					"nvim-lua/plenary.nvim",
 					{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" },
+          "nvim-telescope/telescope-fzy-native.nvim",
 					"nvim-telescope/telescope-project.nvim",
 					"cljoly/telescope-repo.nvim",
 					"nvim-telescope/telescope-file-browser.nvim",
