@@ -13,9 +13,6 @@
     ~/.config/nvim:
       path: config/nvim
       create: true
-    ~/.config/coc:
-      path: config/coc
-      create: true
     ~/.config/starship.toml:
       path: config/starship.toml
     ~/.env: env
