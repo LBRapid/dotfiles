@@ -25,6 +25,11 @@ opt.updatetime = 250 --Decrease update time
 opt.timeoutlen = 500 --Time in milliseconds to wait for a mapped sequence to complete.
 opt.signcolumn = "yes" -- Always show sign column
 opt.clipboard = "unnamedplus" -- Access system clipboard
+opt.expandtab = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.autoindent = true
+opt.smartindent = true
 
 -- File search
 opt.path:remove "/usr/include"
