@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
 	local navic = require "nvim-navic"
+  local blame = require "gitblame"
 
 	require('lualine').setup {
 		options = {
@@ -29,7 +30,10 @@ function M.setup()
 				{ 'filename' },
 				{ navic.get_location, cond = navic.is_available },
 			},
-			lualine_x = {'encoding', 'fileformat', 'filetype'},
+			lualine_x = {
+        { blame.get_current_blame_text, cond = blame.is_blame_text_available },
+        'encoding', 'fileformat', 'filetype',
+      },
 			lualine_y = {'progress'},
 			lualine_z = {'location'}
 		},

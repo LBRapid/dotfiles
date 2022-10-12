@@ -74,6 +74,14 @@ function M.setup()
       end,
     }
 
+    -- Git blame
+    use {
+      "f-person/git-blame.nvim",
+      config = function()
+        require("config.gitblame").setup()
+      end
+    }
+
 		-- WhichKey
 		use {
 			 "folke/which-key.nvim",
@@ -286,6 +294,15 @@ function M.setup()
       print "Restart Neovim required after installation!"
       require("packer").sync()
     end
+
+    -- Mason
+    use {
+      "williamboman/mason.nvim",
+      event = "VimEnter",
+      config = function()
+        require("config.mason").setup()
+      end
+    }
   end
 
   packer_init()
