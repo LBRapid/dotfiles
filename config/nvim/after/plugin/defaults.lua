@@ -53,3 +53,9 @@ vim.cmd [[
 -- Colorscheme
 g.material_style = "darker"
 vim.cmd "colorscheme material"
+
+-- Strip trailing whitespace
+api.nvim_create_autocmd({ "BufWritePre" }, {
+    pattern = { "*" },
+    command = [[%s/\s\+$//e]],
+})
