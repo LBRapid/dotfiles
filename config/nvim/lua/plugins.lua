@@ -46,7 +46,7 @@ function M.setup()
     use { "nvim-lua/plenary.nvim", module = "plenary" }
 
     -- Colorscheme
-    use { 
+    use {
 			"marko-cerovac/material.nvim",
 			config = function()
 				require('material').setup()
@@ -141,7 +141,7 @@ function M.setup()
         require("lightspeed").setup {}
       end,
     }
-		
+
     -- Markdown
     use {
       "iamcco/markdown-preview.nvim",
@@ -303,6 +303,9 @@ function M.setup()
         require("config.mason").setup()
       end
     }
+
+    -- Auto change root directory
+    use { "airblade/vim-rooter" }
   end
 
   packer_init()

@@ -15,6 +15,14 @@ function M.setup()
         },
       },
     },
+    extensions = {
+      project = {
+        base_dirs = {
+          '~/workspace',
+        },
+        sync_with_nvim_tree = false,
+      },
+    },
   }
 
   telescope.load_extension "fzf"
