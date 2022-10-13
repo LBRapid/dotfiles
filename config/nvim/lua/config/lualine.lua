@@ -12,7 +12,20 @@ function M.setup()
 			section_separators = { left = '', right = ''},
 			disabled_filetypes = {
 				statusline = {},
-				winbar = {},
+				winbar = {
+          "help",
+          "startify",
+          "dashboard",
+          "packer",
+          "neogitstatus",
+          "NvimTree",
+          "Trouble",
+          "alpha",
+          "lir",
+          "Outline",
+          "spectre_panel",
+          "toggleterm",
+        },
 			},
 			ignore_focus = {},
 			always_divide_middle = true,
@@ -28,7 +41,6 @@ function M.setup()
 			lualine_b = {'branch', 'diff', 'diagnostics'},
 			lualine_c = {
 				{ 'filename' },
-				{ navic.get_location, cond = navic.is_available },
 			},
 			lualine_x = {
         { blame.get_current_blame_text, cond = blame.is_blame_text_available },
@@ -46,7 +58,11 @@ function M.setup()
 			lualine_z = {}
 		},
 		tabline = {},
-		winbar = {},
+		winbar = {
+      lualine_x = {
+        { navic.get_location, cond = navic.is_available },
+      },
+    },
 		inactive_winbar = {},
 		extensions = {}
 	}
