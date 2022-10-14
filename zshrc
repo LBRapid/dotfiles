@@ -8,64 +8,6 @@ autoload -Uz compinit
 compinit
 ZSH_DISABLE_COMPFIX="false"
 
-## Clone zgen if you haven't already
-#if [[ -z "$ZGEN_PARENT_DIR" ]]; then
-#  ZGEN_PARENT_DIR=$HOME
-#fi
-#if [[ ! -f $ZGEN_PARENT_DIR/.zgen/zgen.zsh ]]; then
-#  if [[ ! -d "$ZGEN_PARENT_DIR" ]]; then
-#    mkdir -p "$ZGEN_PARENT_DIR"
-#  fi
-#  pushd $ZGEN_PARENT_DIR
-#  git clone git@github.com:tarjoilija/zgen.git
-#  popd
-#fi
-#source $ZGEN_PARENT_DIR/.zgen/zgen.zsh
-#unset ZGEN_PARENT_DIR
-
-#if ! zgen saved; then
-#  echo "Creating a zgen save"
-#  ZGEN_LOADED=()
-#  ZGEN_COMPLETIONS=()
-
-#  # Specify plugins
-#  zgen oh-my-zsh
-#  zgen oh-my-zsh plugins/bundler
-#  zgen oh-my-zsh plugins/colored-man-pages
-#  zgen oh-my-zsh plugins/sudo
-#  zgen load unixorn/git-extra-commands
-#  zgen load unixorn/rake-completion.zshplugin
-#  zgen load Tarrasch/zsh-bd
-#  zgen load ltj/gitgo
-#  zgen load iam4x/zsh-iterm-touchbar
-#  zgen load chrissicool/zsh-256color
-#  zgen load supercrabtree/k
-#  zgen load djui/alias-tips
-
-#  if [ $(uname -a | grep -ci Darwin) = 1 ]; then
-#    # Load macOS-specific plugins
-#    #zgen oh-my-zsh plugins/brew
-#    #zgen oh-my-zsh plugins/osx
-#  fi
-
-#  # Completions
-#  zgen load zsh-users/zsh-autosuggestions
-#  zgen load zsh-users/zsh-completions src
-#  zgen load zsh-users/zsh-syntax-highlighting
-
-#  # Up/Down Arrow for History Substring Search
-#  bindkey "$terminfo[kcuu1]" history-substring-search-up
-#  bindkey "$terminfo[kcud1]" history-substring-search-down
-#  bindkey '^T' autosuggest-toggle
-#  zstyle ':completion:*' menu select
-
-#  # Theme
-#  # zgen load https://github.com/denysdovhan/spaceship-prompt spaceship
-
-#  # Save to init script
-#  zgen save
-#fi
-
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
