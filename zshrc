@@ -4,8 +4,6 @@ setopt correct
 # Turn off correct for filenames
 unsetopt correctall
 
-autoload -Uz compinit
-compinit
 ZSH_DISABLE_COMPFIX="false"
 
 # source antidote
@@ -13,6 +11,15 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
+
+# Run compinit after antidote loads
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+  touch .zcompdump
+else
+  compinit -C
+fi
 
 # Enable touchbar-git for iterm
 TOUCHBAR_GIT_ENABLED=true
@@ -70,10 +77,6 @@ eval "$(fnm env --use-on-cd)"
 
 # Add node@10 to path
 export PATH="/usr/local/opt/node@10/bin:$PATH"
-
-# Start asdf
-. $HOME/.asdf/asdf.sh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Enable starship
 eval "$(starship init zsh)"
