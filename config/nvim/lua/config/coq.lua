@@ -2,7 +2,13 @@ local M = {}
 
 function M.setup()
   local coq = require "coq"
+  local g = vim.g
   coq.Now("-s") -- Start coq
+
+  -- Settings
+  g.coq_settings = {
+    ['keymap.jump_to_mark'] = '<C-f>'
+  }
 
   -- 3party sources
   require "coq_3p" {
