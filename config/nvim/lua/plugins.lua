@@ -192,6 +192,16 @@ function M.setup()
 			 end,
 		}
 
+    -- Surround
+    use({
+      "kylechui/nvim-surround",
+      event = "VimEnter",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
+        require("nvim-surround").setup()
+      end
+    })
+
     -- Completion
     use {
       "ms-jpq/coq_nvim",
