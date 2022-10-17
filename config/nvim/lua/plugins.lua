@@ -128,17 +128,10 @@ function M.setup()
     use {
       "phaazon/hop.nvim",
       cmd = { "HopWord", "HopChar1" },
+      module = "hop",
+      keys = { "f", "F", "t", "T", "s", "S" },
       config = function()
-        require("hop").setup {}
-      end,
-    }
-
-    -- Easy motion
-    use {
-      "ggandor/lightspeed.nvim",
-      keys = { "s", "S", "f", "F", "t", "T" },
-      config = function()
-        require("lightspeed").setup {}
+        require("config.hop").setup()
       end,
     }
 
