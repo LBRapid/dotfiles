@@ -278,7 +278,7 @@ function M.setup()
 		-- LSP
 		use {
 			"neovim/nvim-lspconfig",
-			wants = { "mason.nvim", "mason-lspconfig.nvim", "lsp_signature.nvim", "coq_nvim", "null-ls.nvim" },
+			wants = { "mason.nvim", "mason-lspconfig.nvim", "lsp_signature.nvim", "coq_nvim", "null-ls.nvim", "fidget.nvim" },
       event = "VimEnter",
       after = {
         "mason.nvim",
@@ -294,8 +294,18 @@ function M.setup()
         "ms-jpq/coq_nvim",
         "ray-x/lsp_signature.nvim",
         "jose-elias-alvarez/null-ls.nvim",
+        "j-hui/fidget.nvim",
 			},
 		}
+
+-- Lua
+    use {
+      "folke/trouble.nvim",
+      requires = "kyazdani42/nvim-web-devicons",
+      config = function()
+        require("trouble").setup()
+      end
+    }
 
     -- Notification
     use {

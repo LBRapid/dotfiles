@@ -1,16 +1,16 @@
 local M = {}
 
 local servers = {
-  gopls = {},
-  html = {},
-  jsonls = {},
-  pyright = {},
-  rust_analyzer = {},
-	solargraph = {},
-  sumneko_lua = {},
-  tsserver = {},
-  vimls = {},
-  volar = {},
+  "gopls",
+  "html",
+  "jsonls",
+  "pyright",
+  "rust_analyzer",
+	"solargraph",
+  "sumneko_lua",
+  "tsserver",
+  "vimls",
+  "volar",
 }
 
 local function on_attach(client, bufnr)
@@ -21,9 +21,6 @@ local function on_attach(client, bufnr)
   -- Use LSP as the handler for formatexpr.
   -- See `:help formatexpr` for more information.
   vim.api.nvim_buf_set_option(0, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-
-  -- Configure key mappings
-  require("config.lsp.keymaps").setup(client, bufnr)
 
   -- nvim-navic
   if client.server_capabilities.documentSymbolProvider then
@@ -41,6 +38,9 @@ local function on_attach(client, bufnr)
       end,
     })
   end
+
+  -- Configure key mappings
+  require("config.lsp.keymaps").setup(client, bufnr)
 end
 
 local opts = {
@@ -51,8 +51,10 @@ local opts = {
 }
 
 function M.setup()
+  local lspconfig = require "lspconfig"
+
   require("mason-lspconfig").setup {
-    ensure_installed = vim.tbl_keys(servers),
+    ensure_installed = vim.tbl_values(servers),
     automatic_installation = true,
   }
 
@@ -60,9 +62,32 @@ function M.setup()
 
   require("mason-lspconfig").setup_handlers {
     function(server_name)
-      require("lspconfig")[server_name].setup {}
-    end
+      lspconfig[server_name].setup {}
+    end,
+    ["sumneko_lua"] = function ()
+      lspconfig.sumneko_lua.setup {
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT",
+              path = vim.split(package.path, ";"),
+            },
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              library = {
+                [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+                [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+              },
+            },
+          },
+        },
+      }
+    end,
   }
+
+  require("fidget").setup{}
 end
 
 return M

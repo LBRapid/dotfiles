@@ -78,6 +78,16 @@ function M.setup()
       name = "Git",
       s = { "<cmd>Neogit<CR>", "Status" },
     },
+
+    x = {
+      name = "Trouble",
+      x = { "<cmd>TroubleToggle<cr>", "List" },
+      w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace Diagnostics" },
+      d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
+      q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+      l = { "<cmd>TroubleToggle loclist<cr>", "Location List" },
+      r = { "<cmd>TroubleToggle lsp_references<cr>", "LSP References" },
+    },
   }
 
   whichkey.setup(conf)
