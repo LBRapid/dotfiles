@@ -14,6 +14,7 @@ function M.setup()
     },
   }
   vim.notify = notify
+  require("telescope").load_extension("notify")
 end
 
 return M

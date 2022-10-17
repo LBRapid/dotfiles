@@ -278,15 +278,22 @@ function M.setup()
 		-- LSP
 		use {
 			"neovim/nvim-lspconfig",
-			wants = { "nvim-lsp-installer", "lsp_signature.nvim", "coq_nvim" },
+			wants = { "mason.nvim", "mason-lspconfig.nvim", "lsp_signature.nvim", "coq_nvim", "null-ls.nvim" },
       event = "VimEnter",
+      after = {
+        "mason.nvim",
+        "mason-lspconfig.nvim",
+      },
 			config = function()
+        require("config.mason").setup()
 				require("config.lsp").setup()
 			end,
 			requires = {
-				"williamboman/nvim-lsp-installer",
+        "williamboman/mason.nvim",
+				"williamboman/mason-lspconfig.nvim",
         "ms-jpq/coq_nvim",
         "ray-x/lsp_signature.nvim",
+        "jose-elias-alvarez/null-ls.nvim",
 			},
 		}
 
@@ -304,15 +311,6 @@ function M.setup()
       print "Restart Neovim required after installation!"
       require("packer").sync()
     end
-
-    -- Mason
-    use {
-      "williamboman/mason.nvim",
-      event = "VimEnter",
-      config = function()
-        require("config.mason").setup()
-      end
-    }
 
     -- Auto change root directory
     use { "airblade/vim-rooter" }
