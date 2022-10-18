@@ -74,6 +74,12 @@ function M.setup()
       end,
     }
 
+    -- Codi
+    use {
+      "metakirby5/codi.vim",
+      event = "VimEnter",
+    }
+
     -- Git blame
     use {
       "f-person/git-blame.nvim",
@@ -268,6 +274,13 @@ function M.setup()
       disable = false,
     }
 
+    use {
+      "windwp/nvim-ts-autotag",
+      wants = "nvim-treesitter",
+      event = "BufRead",
+      disable = false,
+    }
+
 		-- LSP
 		use {
 			"neovim/nvim-lspconfig",
@@ -294,6 +307,7 @@ function M.setup()
 -- Lua
     use {
       "folke/trouble.nvim",
+      event = "BufReadPre",
       requires = "kyazdani42/nvim-web-devicons",
       config = function()
         require("trouble").setup()

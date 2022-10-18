@@ -15,6 +15,9 @@ function M.setup()
     endwise = {
       enable = true,
     },
+    autotag = {
+      enable = true,
+    },
   }
 end
 
