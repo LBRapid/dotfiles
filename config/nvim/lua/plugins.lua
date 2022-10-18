@@ -317,12 +317,26 @@ function M.setup()
     -- Notification
     use {
       "rcarriga/nvim-notify",
-      event = "BufReadPre",
+      event = "VimEnter",
       config = function()
         require("config.notify").setup()
       end,
       disable = false,
     }
+
+    -- Noice
+    use({
+      "folke/noice.nvim",
+      event = "VimEnter",
+      module = "notify",
+      config = function()
+        require("config.noice").setup()
+      end,
+      requires = {
+        "MunifTanjim/nui.nvim",
+        "rcarriga/nvim-notify",
+        }
+    })
 
     if packer_bootstrap then
       print "Restart Neovim required after installation!"
