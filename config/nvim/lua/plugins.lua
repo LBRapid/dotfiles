@@ -335,7 +335,8 @@ function M.setup()
       requires = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
-        }
+      },
+      disable = true,
     })
 
     if packer_bootstrap then
