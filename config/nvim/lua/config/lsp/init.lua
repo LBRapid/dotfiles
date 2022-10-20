@@ -13,7 +13,7 @@ local servers = {
   "volar",
 }
 
-local function on_attach(client, bufnr)
+function M.on_attach(client, bufnr)
   -- Enable completion triggered by <C-X><C-O>
   -- See `:help omnifunc` and `:help ins-completion` for more information.
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -44,7 +44,7 @@ local function on_attach(client, bufnr)
 end
 
 local opts = {
-  on_attach = on_attach,
+  on_attach = M.on_attach,
   flags = {
     debounce_text_changes = 150,
   },
@@ -62,7 +62,7 @@ function M.setup()
 
   require("mason-lspconfig").setup_handlers {
     function(server_name)
-      lspconfig[server_name].setup {}
+      lspconfig[server_name].setup(opts)
     end,
     ["sumneko_lua"] = function ()
       lspconfig.sumneko_lua.setup {
