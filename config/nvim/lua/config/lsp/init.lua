@@ -6,7 +6,14 @@ local servers = {
   jsonls = {},
   pyright = {},
   rust_analyzer = {},
-  solargraph = {},
+  solargraph = {
+    settings = {
+      solargraph = {
+        diagnostics = true,
+        formatting = true,
+      },
+    },
+  },
   sumneko_lua = {
     settings = {
       Lua = {
@@ -85,7 +92,7 @@ function M.setup()
     end,
   }
 
-  require("fidget").setup{}
+  require("fidget").setup {}
 end
 
 return M
