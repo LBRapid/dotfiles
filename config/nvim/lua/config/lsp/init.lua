@@ -1,16 +1,34 @@
 local M = {}
 
 local servers = {
-  "gopls",
-  "html",
-  "jsonls",
-  "pyright",
-  "rust_analyzer",
-	"solargraph",
-  "sumneko_lua",
-  "tsserver",
-  "vimls",
-  "volar",
+  gopls = {},
+  html = {},
+  jsonls = {},
+  pyright = {},
+  rust_analyzer = {},
+  solargraph = {},
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        runtime = {
+          version = "LuaJIT",
+          path = vim.split(package.path, ";"),
+        },
+        diagnostics = {
+          globals = { "vim" },
+        },
+        workspace = {
+          library = {
+            [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+            [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+          },
+        },
+      },
+    },
+  },
+  tsserver = {},
+  vimls = {},
+  volar = {},
 }
 
 function M.on_attach(client, bufnr)
@@ -54,7 +72,7 @@ function M.setup()
   local lspconfig = require "lspconfig"
 
   require("mason-lspconfig").setup {
-    ensure_installed = vim.tbl_values(servers),
+    ensure_installed = vim.tbl_keys(servers),
     automatic_installation = true,
   }
 
@@ -62,28 +80,8 @@ function M.setup()
 
   require("mason-lspconfig").setup_handlers {
     function(server_name)
-      lspconfig[server_name].setup(opts)
-    end,
-    ["sumneko_lua"] = function ()
-      lspconfig.sumneko_lua.setup {
-        settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT",
-              path = vim.split(package.path, ";"),
-            },
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = {
-                [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
-              },
-            },
-          },
-        },
-      }
+      local options = vim.tbl_deep_extend("force", opts, servers[server_name] or {})
+      lspconfig[server_name].setup(options)
     end,
   }
 
