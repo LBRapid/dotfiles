@@ -9,7 +9,7 @@ local servers = {
   solargraph = {
     settings = {
       solargraph = {
-        diagnostics = true,
+        diagnostics = false,
         formatting = true,
       },
     },
