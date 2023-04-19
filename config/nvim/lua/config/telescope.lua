@@ -18,7 +18,7 @@ function M.setup()
     extensions = {
       project = {
         base_dirs = {
-          '~/workspace',
+          '~/dev',
         },
         sync_with_nvim_tree = false,
       },

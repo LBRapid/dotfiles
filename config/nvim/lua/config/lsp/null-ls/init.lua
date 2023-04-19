@@ -6,13 +6,15 @@ local b = nls.builtins
 
 local sources = {
   -- formatting
-  b.formatting.prettierd,
+  -- b.formatting.prettierd,
+  b.formatting.eslint,
   b.formatting.shfmt,
   b.formatting.fixjson,
 
   -- diagnostics
   -- b.diagnostics.markdownlint,
   -- b.diagnostics.eslint_d,
+  b.diagnostics.rubocop,
 
   -- code actions
   -- b.code_actions.gitsigns,

@@ -3,6 +3,8 @@ setopt correct
 
 # Turn off correct for filenames
 unsetopt correctall
+autoload -Uz compinit
+compinit
 
 ZSH_DISABLE_COMPFIX="false"
 
