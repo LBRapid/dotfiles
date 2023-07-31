@@ -14,12 +14,8 @@
   st = status
   di = diff
   dc = diff --cached
-  co = checkout
   br = branch
-  sta = stash
-  sd = svn dcommit
   tg = tag
-  sr = svn rebase
   pp = !git pull --rebase && git push
   lg = log --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %Cblue<%an>%Creset' --abbrev-commit --date=relative
   deploy = !git push && cap deploy
@@ -54,10 +50,9 @@
   safecrif = true
   excludesfile = ~/.gitignore_global
 	pager = less -r
-[branch]
-  autosetuprebase = always
 [merge]
   summary = true
+  log = false
 	tool = Kaleidoscope
 [github]
 	user = LBRapid
@@ -67,15 +62,16 @@
 [web]
 	browser = google-chrome
 [pull]
-	rebase = true
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
+	rebase = false
+[diff]
+	tool = Kaleidoscope
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
+	trustExitCode = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 [mergetool]
 	prompt = false
-[diff]
-	tool = Kaleidoscope
