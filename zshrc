@@ -98,3 +98,4 @@ export PATH="$PATH:/Users/johndyer/.local/bin"
 export PATH="$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+eval "$(jenv init -)"

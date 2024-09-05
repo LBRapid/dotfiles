@@ -1,2 +1,2 @@
-require "config"
-require("plugins").setup()
+vim.opt.termguicolors = true
+vim.cmd "colorscheme material"

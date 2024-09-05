@@ -6,7 +6,7 @@
 	user = LBRapid
 [user]
 	name = John Dyer
-	email = lbrapid@gmail.com
+	email = johnd@platphormcorp.com
 [alias]
   ap = add --patch
   up = pull
