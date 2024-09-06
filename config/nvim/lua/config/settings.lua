@@ -51,10 +51,8 @@ vim.cmd [[
 
 -- Colorscheme
 g.material_style = "darker"
-vim.cmd "colorscheme material"
 
--- Strip trailing whitespace
-api.nvim_create_autocmd({ "BufWritePre" }, {
-    pattern = { "*" },
-    command = [[%s/\s\+$//e]],
-})
+vim.bo.shiftwidth = 2
+vim.bo.tabstop = 2
+vim.bo.softtabstop = 2
+vim.bo.textwidth = 120

@@ -1,2 +1,3 @@
-vim.opt.termguicolors = true
-vim.cmd "colorscheme material"
+require("config.settings")
+require("config.keymaps")
+require("config.lazy")
