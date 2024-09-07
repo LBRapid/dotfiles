@@ -68,6 +68,12 @@ return {
                     capabilities = capabilities,
                 })
             end,
+            ["solargraph"] = function()
+                nvim_lsp["solargraph"].setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                })
+            end,
         })
     end,
 }

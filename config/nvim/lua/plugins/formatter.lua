@@ -17,10 +17,12 @@ return {
                 markdown = { "prettier" },
                 lua = { "stylua" },
                 python = { "isort", "black" },
+                erb = { "erb-lint" },
+                ruby = { "rubocop", "solargraph" },
             },
             format_on_save = {
                 lsp_fallback = true,
-                timeout_ms = 1000,
+                timeout_ms = 2000,
             },
         })
 

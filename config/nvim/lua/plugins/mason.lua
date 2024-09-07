@@ -15,6 +15,7 @@ return {
                 "html",
                 "jsonls",
                 "pyright",
+                "solargraph",
             },
         })
 
@@ -26,6 +27,8 @@ return {
                 "black", -- python formatter
                 "pylint",
                 "eslint_d",
+                "erb-lint",
+                "rubocop",
             },
         })
     end,
