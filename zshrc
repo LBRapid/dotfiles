@@ -14,15 +14,6 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
 
-# Run compinit after antidote loads
-autoload -Uz compinit
-if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
-  compinit
-  touch .zcompdump
-else
-  compinit -C
-fi
-
 # Enable touchbar-git for iterm
 TOUCHBAR_GIT_ENABLED=true
 
@@ -95,7 +86,8 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PATH:/Users/johndyer/.local/bin"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
 # Load RVM into a shell session
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 eval "$(jenv init -)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
