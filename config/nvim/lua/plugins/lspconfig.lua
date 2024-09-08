@@ -74,6 +74,13 @@ return {
                     capabilities = capabilities,
                 })
             end,
+            ["rubocop"] = function()
+                nvim_lsp["rubocop"].setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                    cmd = {"bundle", "exec", "rubocop", "--lsp"},
+                })
+            end,
         })
     end,
 }
