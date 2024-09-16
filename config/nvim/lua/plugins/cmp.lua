@@ -37,6 +37,7 @@ return {
         end
 
         cmp.setup({
+            preselect = cmp.PreselectMode.Item,
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
@@ -44,10 +45,10 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-                ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                ["<C-u>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.close(),
-                ["<CR>"] = cmp.mapping.confirm({
+                ["<C-f>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
                     select = true,
                 }),

@@ -3,7 +3,19 @@ return {
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
-        require("telescope").setup()
+        local actions = require "telescope.actions"
+        require("telescope").setup({
+            defaults = {
+                mappings = {
+                    i = {
+                    ["<C-j>"] = actions.move_selection_next,
+                    ["<C-k>"] = actions.move_selection_previous,
+                    ["<C-n>"] = actions.cycle_history_next,
+                    ["<C-p>"] = actions.cycle_history_prev,
+                    },
+                },
+            },
+        })
 
         -- set keymaps
         local keymap = vim.keymap
