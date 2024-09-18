@@ -29,6 +29,7 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 opt.autoindent = true
 opt.smartindent = true
+opt.completeopt = "menuone,noselect,preview"
 
 -- File search
 opt.path:remove "/usr/include"

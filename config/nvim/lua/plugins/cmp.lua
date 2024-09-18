@@ -37,7 +37,7 @@ return {
         end
 
         cmp.setup({
-            preselect = cmp.PreselectMode.Item,
+            preselect = cmp.PreselectMode.None,
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
@@ -48,9 +48,9 @@ return {
                 ["<C-u>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-e>"] = cmp.mapping.close(),
-                ["<C-f>"] = cmp.mapping.confirm({
+                ["<CR>"] = cmp.mapping.confirm({
                     behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
+                    select = false,
                 }),
                 ["<Tab>"] = cmp.mapping(function(fallback)
                     if cmp.visible() and has_words_before() then
