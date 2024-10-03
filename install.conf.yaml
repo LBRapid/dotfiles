@@ -25,3 +25,4 @@
     ~/.zgen: zsh/zgen
     ~/.zsh_plugins.txt: zsh_plugins.txt
     ~/.ideavimrc: ideavimrc
+    ~/.wezterm.lua: wezterm.lua
