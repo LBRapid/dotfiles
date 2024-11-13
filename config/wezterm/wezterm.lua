@@ -6,6 +6,8 @@ local config = wezterm.config_builder()
 
 local projects = require("projects")
 
+local session_manager = require("wezterm-session-manager/session-manager")
+
 config.color_scheme = "MaterialDarker"
 config.font = wezterm.font("FiraCode Nerd Font")
 config.font_size = 13.0
@@ -31,11 +33,22 @@ config.inactive_pane_hsb = {
 	brightness = 0.7,
 }
 
+-- Session manager event bindings
+wezterm.on("save_session", function(window)
+	session_manager.save_state(window)
+end)
+wezterm.on("load_session", function(window)
+	session_manager.load_state(window)
+end)
+wezterm.on("restore_session", function(window)
+	session_manager.restore_state(window)
+end)
+
 -- Keybindings
 config.keys = {
 	{
-		key = "l",
-		mods = "CTRL",
+		key = "k",
+		mods = "CMD",
 		action = act.ClearScrollback("ScrollbackAndViewport"),
 	},
 	{
@@ -69,12 +82,38 @@ config.keys = {
 		mods = "LEADER",
 		action = act.ShowLauncherArgs({ flags = "FUZZY|WORKSPACES" }),
 	},
+	-- Create new named workspace
+	{
+		key = "n",
+		mods = "LEADER",
+		action = act.PromptInputLine({
+			description = wezterm.format({
+				{ Attribute = { Intensity = "Bold" } },
+				{ Foreground = { AnsiColor = "Fuchsia" } },
+				{ Text = "Enter name for new workspace" },
+			}),
+			action = wezterm.action_callback(function(window, pane, line)
+				-- line will be `nil` if they hit escape without entering anything
+				-- An empty string if they just hit enter
+				-- Or the actual line of text they wrote
+				if line then
+					window:perform_action(
+						act.SwitchToWorkspace({
+							name = line,
+						}),
+						pane
+					)
+				end
+			end),
+		}),
+	},
+	{ key = "f", mods = "CMD|SHIFT", action = act.Search("CurrentSelectionOrEmptyString") },
 	{ key = "l", mods = "CMD|SHIFT", action = act.ActivateTabRelative(1) },
 	{ key = "h", mods = "CMD|SHIFT", action = act.ActivateTabRelative(-1) },
-	{ key = "j", mods = "CMD", action = act.ActivatePaneDirection("Down") },
-	{ key = "k", mods = "CMD", action = act.ActivatePaneDirection("Up") },
-	{ key = "h", mods = "CMD", action = act.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "CMD", action = act.ActivatePaneDirection("Right") },
+	{ key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
+	{ key = "h", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
+	{ key = "l", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
 	{ key = "t", mods = "CMD", action = act.SpawnTab("CurrentPaneDomain") },
 	{ key = "w", mods = "CMD", action = act.CloseCurrentTab({ confirm = false }) },
 	{ key = "x", mods = "CMD", action = act.CloseCurrentPane({ confirm = false }) },
@@ -83,7 +122,19 @@ config.keys = {
 	{ key = "Enter", mods = "LEADER", action = act.ActivateCopyMode },
 	{ key = "p", mods = "LEADER", action = act.PasteFrom("PrimarySelection") },
 	{ key = "r", mods = "LEADER", action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }) },
+	-- Use Option + Arrow keys to move by word
+	{ key = "LeftArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bb" }) },
+	{ key = "RightArrow", mods = "OPT", action = wezterm.action({ SendString = "\x1bf" }) },
+	-- Session manager
+	{ key = "s", mods = "LEADER", action = wezterm.action({ EmitEvent = "save_session" }) },
+	{ key = "l", mods = "LEADER", action = wezterm.action({ EmitEvent = "load_session" }) },
+	{ key = "h", mods = "LEADER", action = wezterm.action({ EmitEvent = "restore_session" }) },
 }
+
+-- Easy tab navigation with CMD + number
+for i = 1, 9 do
+	table.insert(config.keys, { key = tostring(i), mods = "CMD", action = act.ActivateTab(i - 1) })
+end
 
 -- Powerline
 local function segments_for_right_status(window)
@@ -109,11 +160,7 @@ wezterm.on("update-status", function(window, _)
 	-- darker/lighter depending on whether we're on a dark/light colour
 	-- scheme. Let's establish the "from" and "to" bounds of our gradient.
 	local gradient_to, gradient_from = bg
-	if appearance.is_dark() then
-		gradient_from = gradient_to:lighten(0.2)
-	else
-		gradient_from = gradient_to:darken(0.2)
-	end
+	gradient_from = gradient_to:lighten(0.2)
 
 	-- Yes, WezTerm supports creating gradients, because why not?! Although
 	-- they'd usually be used for setting high fidelity gradients on your terminal's
